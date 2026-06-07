@@ -77,6 +77,53 @@ Transition: ...
 - **Conciseness**: Each enrichment block ≤3 sentences; the audience is here for your work, not a literature review
 - **Speaker choice**: Enrichment stays in display notes so the speaker can choose whether to say it
 
+## Anchored Annotations — Element-Level Precision
+
+For presentations and documents with multiple content blocks per page, use **anchored annotations** that point directly to the specific text element being discussed. The user should never have to guess "which part is this about?"
+
+### Anchor Format
+
+Reference each content block by its position on the page and quote its first few words:
+
+```text
+🖱 左上标题区 · "功能要求"
+   系统定义了三大功能模块，每个模块有独立的输入/验证/反馈闭环。
+
+🖱 中部第一区块 · "添加功能"
+   学号唯一性约束是整个系统的数据完整性底线。
+   重复学号拒绝添加，确保了后续查询和修改的准确性。
+
+🖱 中部第二区块 · "查询与显示功能"
+   多维度检索设计让系统既支持精确查询，也支持全局概览。
+```
+
+Or in a more compact form:
+
+```text
+[区块: 添加功能, 位置: 左上, 内容: "程序能够添加不同学生的记录..."]
+学号唯一性约束是整个系统的数据完整性底线...
+
+[区块: 查询与显示功能, 位置: 右上, 内容: "可根据学号、姓名等信息..."]
+多维度检索设计让系统既支持精确查询，也支持全局概览...
+```
+
+### Anchor Rules
+
+1. **Always quote first 4-8 characters** of the source text so the reader instantly locates the referenced element
+2. **Use spatial cues**: "左上"、"右下"、"中部"、"标题栏"、"表格第2行"
+3. **One annotation per major block** — don't blur multiple elements together
+4. **Tables**: reference by header + row: `[表格: 性能对比, 第3行: GPT-4]
+5. **Images/charts**: describe what's visible in the image, not what you assume: `[图表: 架构图, 位置: 页中] 三层结构的中间层包含学籍分类、验证、统计三个子模块`
+
+### When to Use Anchored vs. Continuous
+
+| Mode | Best for |
+|------|----------|
+| Anchored | Pages with 3+ distinct blocks, tables, charts, dense layouts |
+| Continuous | Title slides, single-block pages, smooth narrative flow |
+
+The default is anchored mode for PPTX slides and complex PDFs. The user can request continuous prose with: "用连续段落格式写注释。"
+
 ## Annotation Style Rules
 
 1. **Don't describe the page object.** Start with the claim, finding, insight, or argument step.  
